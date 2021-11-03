@@ -33,7 +33,7 @@ int main() {
 
 	printf("Total Directory Size: %d Bytes\n", size);
 
-	printf("Clearer print of files/directories:\n");
+	printf("\nClearer print of files/directories:\n");
 
 
 	printf("Directories:\n");
