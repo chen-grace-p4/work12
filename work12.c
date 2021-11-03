@@ -10,19 +10,23 @@
 
 int main() {
 	struct stat sb;
-	stat("nums.data", &sb);
-	printf("size: %lu\n", sb.st_size);
-	printf("perms: %o\n", sb.st_mode);
-	printf("access time: %s\n", ctime(&(sb.st_atime)));
 
-	DIR *d;
+	DIR *d = opendir(".");
 	struct dirent *dent;
-	d = opendir(".");
 
-	dent = readdir(d);
-	printf("name: %s\n", dent->d_name);
-	dent = readdir(d);
-	printf("name: %s\n", dent->d_name);
+	unsigned long size = 0;
+
+	while(dent) {
+		stat(dent->d_name, &sb);
+		if (dent->d_type == 8) {
+			size += sb.st_size;
+			printf("Regular File: %s \n", dent->d_name);
+		}
+		if (dent->d_type == 4) {
+			printf("Directory: %s \n", dent->d_name);
+		}
+		dent = readdir(d);
+	}
 
 	return 0;
 }
