@@ -14,7 +14,7 @@ int main() {
 	DIR *d = opendir(".");
 	struct dirent *dent;
 
-	unsigned long size = 0;
+	int size = 0;
 
 	while(dent) {
 		stat(dent->d_name, &sb);
