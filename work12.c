@@ -16,6 +16,7 @@ int main() {
 
 	int size = 0;
 
+	dent = readdir(d);
 	while(dent) {
 		stat(dent->d_name, &sb);
 		if (dent->d_type == 8) {
