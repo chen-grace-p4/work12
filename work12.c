@@ -29,5 +29,7 @@ int main() {
 		dent = readdir(d);
 	}
 
+	printf("Total Directory Size: %d\n", size);
+
 	return 0;
 }
