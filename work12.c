@@ -33,5 +33,29 @@ int main() {
 
 	printf("Total Directory Size: %d Bytes\n", size);
 
+	printf("Clearer print of files/directories:\n");
+
+
+	printf("Directories:\n");
+	rewinddir(d);
+	dent = readdir(d);
+	while (dent) {
+		if (dent->d_type == 4) {
+		printf("\t%s\n", dent->d_name);
+		}
+		dent = readdir(d);
+	}
+
+	printf("Regular files:\n");
+	rewinddir(d);
+	dent = readdir(d);
+	while (dent) {
+		if (dent->d_type == 8) {
+		printf("\t%s\n", dent->d_name);
+		}
+		dent = readdir(d);
+	}
+
+	closedir(d);
 	return 0;
 }
