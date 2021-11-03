@@ -17,6 +17,8 @@ int main() {
 	int size = 0;
 
 	dent = readdir(d);
+
+	printf("Statistics for current directory . \n");
 	while(dent) {
 		stat(dent->d_name, &sb);
 		if (dent->d_type == 8) {
@@ -29,7 +31,7 @@ int main() {
 		dent = readdir(d);
 	}
 
-	printf("Total Directory Size: %d\n", size);
+	printf("Total Directory Size: %d Bytes\n", size);
 
 	return 0;
 }
