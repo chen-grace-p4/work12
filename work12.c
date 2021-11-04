@@ -11,6 +11,7 @@
 int main(int argc, char *argv[]) {
 	char path[100];
 	if (argc > 1) {
+		printf("completed");
 		strcpy(path, argv[1]);
 	} else {
 		printf("Please enter a directory: ");
