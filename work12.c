@@ -32,12 +32,11 @@ int main(int argc, char *argv[]) {
 
 	int size = 0;
 
-	dent = readdir(d);
-
 	if(!d) {
 		printf("Error: %s\n", strerror(errno));
 	}
 	if (d) {
+		dent = readdir(d);
 		printf("Statistics for current directory: . \n");
 		while(dent) {
 			stat(dent->d_name, &sb);
