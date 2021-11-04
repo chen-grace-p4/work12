@@ -13,10 +13,11 @@ int main(int argc, char *argv[]) {
 	
 	if (argc > 1) {
 		strcpy(path, argv[1]);
-		fp = fopen(path , "r");
-		if(fp == NULL) {
-			printf("Error: %s\n", strerror(errno));
-			return -1;
+		int in = open(path, O_RDONLY);
+		if (in == -1) {
+			printf("There is an error with open:\n");
+			printf("%s\n", strerror(errno));
+			return 0;
 		}
 	} else {
 		printf("Please enter a directory: ");
