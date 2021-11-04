@@ -16,6 +16,7 @@ int main(int argc, char *argv[]) {
 		printf("Please enter a directory: ");
 		fgets(path, sizeof(path)-1, stdin);
 		path[strlen(path)-1] = 0;
+		printf("completed");
 		printf("\n");
 	}
 	struct stat sb;
