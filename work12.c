@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 
 	dent = readdir(d);
 
-	if(d == NULL) {
+	if(!d) {
 		printf("Error: %s\n", strerror(errno));
 	}
 	if (d) {
