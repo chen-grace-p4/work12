@@ -11,7 +11,7 @@
 int main(int argc, char *argv[]) {
 	char path[100];
 	if (argc > 1) {
-		strcp(path, argv[1]);
+		strcpy(path, argv[1]);
 	} else {
 		printf("Please enter a directory: ");
 		fgets(path, sizeof(path)-1, stdin);
@@ -27,10 +27,10 @@ int main(int argc, char *argv[]) {
 
 	dent = readdir(d);
 
-	if(directory == NULL) {
+	if(d == NULL) {
 		printf("Error: %s\n", strerror(errno));
 	}
-	if (directory) {
+	if (d) {
 		printf("Statistics for current directory: . \n");
 		while(dent) {
 			stat(dent->d_name, &sb);
