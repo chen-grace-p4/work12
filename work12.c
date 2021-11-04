@@ -9,15 +9,19 @@
 #include <dirent.h>
 
 int main(int argc, char *argv[]) {
-	printf("completed");
 	char path[100];
+	
 	if (argc > 1) {
 		strcpy(path, argv[1]);
+		fp = fopen(path , "r");
+		if(fp == NULL) {
+			printf("Error: %s\n", strerror(errno));
+			return -1;
+		}
 	} else {
 		printf("Please enter a directory: ");
 		fgets(path, sizeof(path)-1, stdin);
 		path[strlen(path)-1] = 0;
-		printf("completed");
 		printf("\n");
 	}
 	struct stat sb;
